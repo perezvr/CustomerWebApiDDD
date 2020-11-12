@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30621.155
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerWebApiDDD.Presentation", "CustomerWebApiDDD\CustomerWebApiDDD.Presentation.csproj", "{6205044D-4F2B-42C9-BDFF-9FE02755F448}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerWebApiDDD.Domain", "CustomerWebApiDDD.Domain\CustomerWebApiDDD.Domain.csproj", "{FBDBB895-881B-4FD0-BFF6-9B58BEEB5BBB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerWebApiDDD.Domain.Core", "CustomerWebApiDDD.Domain.Core\CustomerWebApiDDD.Domain.Core.csproj", "{39A71E0E-0227-45C8-A51C-B7AC146D8188}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerWebApiDDD.Infrastruture.Repository", "CustomerWebApiDDD.Infrastruture.Repository\CustomerWebApiDDD.Infrastruture.Repository.csproj", "{12CE66C1-57A3-426E-AF1B-93619A82632C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerWebApiDDD.Application.DTO", "CustomerWebApiDDD.Application.DTO\CustomerWebApiDDD.Application.DTO.csproj", "{F213DA1C-2BD6-4513-9759-6BCE75EDF23A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerWebApiDDD.Application", "CustomerWebApiDDD.Application\CustomerWebApiDDD.Application.csproj", "{E0638147-298E-4C0C-B3F3-5AFD888B4C88}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6205044D-4F2B-42C9-BDFF-9FE02755F448}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6205044D-4F2B-42C9-BDFF-9FE02755F448}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6205044D-4F2B-42C9-BDFF-9FE02755F448}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6205044D-4F2B-42C9-BDFF-9FE02755F448}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBDBB895-881B-4FD0-BFF6-9B58BEEB5BBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBDBB895-881B-4FD0-BFF6-9B58BEEB5BBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBDBB895-881B-4FD0-BFF6-9B58BEEB5BBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBDBB895-881B-4FD0-BFF6-9B58BEEB5BBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39A71E0E-0227-45C8-A51C-B7AC146D8188}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39A71E0E-0227-45C8-A51C-B7AC146D8188}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39A71E0E-0227-45C8-A51C-B7AC146D8188}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39A71E0E-0227-45C8-A51C-B7AC146D8188}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12CE66C1-57A3-426E-AF1B-93619A82632C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12CE66C1-57A3-426E-AF1B-93619A82632C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12CE66C1-57A3-426E-AF1B-93619A82632C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12CE66C1-57A3-426E-AF1B-93619A82632C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F213DA1C-2BD6-4513-9759-6BCE75EDF23A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F213DA1C-2BD6-4513-9759-6BCE75EDF23A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F213DA1C-2BD6-4513-9759-6BCE75EDF23A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F213DA1C-2BD6-4513-9759-6BCE75EDF23A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0638147-298E-4C0C-B3F3-5AFD888B4C88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0638147-298E-4C0C-B3F3-5AFD888B4C88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0638147-298E-4C0C-B3F3-5AFD888B4C88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0638147-298E-4C0C-B3F3-5AFD888B4C88}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {12E030C2-CF13-4534-9EC4-6BD0A7EAC1E3}
+	EndGlobalSection
+EndGlobal
