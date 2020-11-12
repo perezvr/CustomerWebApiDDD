@@ -10,6 +10,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CustomerWebApiDDD.Application.DTO\CustomerWebApiDDD.Application.DTO.csproj" />
+    <ProjectReference Include="..\CustomerWebApiDDD.Domain.Core\CustomerWebApiDDD.Domain.Core.csproj" />
+    <ProjectReference Include="..\CustomerWebApiDDD.Infrastruture.CrossCutting.Adapter\CustomerWebApiDDD.Infrastruture.CrossCutting.Adapter.csproj" />
   </ItemGroup>
 
 </Project>

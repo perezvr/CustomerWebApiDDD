@@ -7,12 +7,23 @@ namespace CustomerWebApiDDD.Domain.Models
 {
     public class Customer : BaseModel
     {
-        public Customer() { }
+        private Customer() { }
+
         public static Customer New(int id, string name, string cpf, DateTime birth)
         {
             return new Customer()
             {
                 Id = id,
+                Name = name,
+                Cpf = cpf,
+                Birth = birth,
+            };
+        }
+
+        public static Customer New(string name, string cpf, DateTime birth)
+        {
+            return new Customer()
+            {
                 Name = name,
                 Cpf = cpf,
                 Birth = birth,

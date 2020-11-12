@@ -8,8 +8,8 @@ namespace CustomerWebApiDDD.Domain.Core.Interfaces.Repositories
 {
     public interface IRepositoryBase<T> where T : BaseModel
     {
-        ActionResult<List<T>> Get();
-        ActionResult<T> Get(int id);
+        List<T> Get();
+        T Get(int id);
         void Insert(T t);
         void Update(int id, T t);
         void Delete(int id);

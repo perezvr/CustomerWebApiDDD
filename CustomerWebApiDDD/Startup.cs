@@ -1,15 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using CustomerWebApiDDD.Application.Interfaces;
+using CustomerWebApiDDD.Application.Services;
+using CustomerWebApiDDD.Domain.Core.Interfaces.Repositories;
+using CustomerWebApiDDD.Infrastruture.CrossCutting.Adapter.Interfaces;
+using CustomerWebApiDDD.Infrastruture.CrossCutting.Adapter.Maps;
+using CustomerWebApiDDD.Infrastruture.Repository.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
 namespace CustomerWebApiDDD
 {
@@ -26,10 +25,13 @@ namespace CustomerWebApiDDD
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddTransient<ICustomerApplicationService, CustomerApplicationService>();
+            services.AddTransient<ICustomerRepository, CustomerRepository>();
+            services.AddTransient<ICustomerMapper, CustomerMapper>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, System.IServiceProvider serviceProvider)
         {
             if (env.IsDevelopment())
             {

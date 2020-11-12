@@ -1,13 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace CustomerWebApiDDD.Domain.Models
 {
     public class Address : BaseModel
     {
         private Address() { }
+
+        public static Address New(int id, string street, string neighborhood, string city, string state)
+        {
+            return new Address()
+            {
+                Id = id,
+                Street = street,
+                Neighborhood = neighborhood,
+                City = city,
+                State = state,
+            };
+        }
+
         public static Address New(string street, string neighborhood, string city, string state)
         {
             return new Address()
