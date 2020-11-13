@@ -19,7 +19,7 @@ namespace CustomerWebApiDDD.Test
             }
             catch (Exception)
             {
-                    Assert.Pass();
+                Assert.Pass();
             }
         }
 

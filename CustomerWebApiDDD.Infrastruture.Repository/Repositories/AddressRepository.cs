@@ -1,10 +1,8 @@
 ﻿using CustomerWebApiDDD.Domain.Core.Interfaces.Repositories;
 using CustomerWebApiDDD.Domain.Models;
 using CustomerWebApiDDD.Infrastruture.Repository.DBConnection;
-using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Text;
 
 namespace CustomerWebApiDDD.Infrastruture.Repository.Repositories
 {
@@ -111,7 +109,7 @@ namespace CustomerWebApiDDD.Infrastruture.Repository.Repositories
         public void Update(int id, Address address)
         {
             address.Validate();
-           
+
             using SqlConnection con = Connection.GetConnection();
             try
             {

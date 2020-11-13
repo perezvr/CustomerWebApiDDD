@@ -1,9 +1,7 @@
 ﻿using CustomerWebApiDDD.Application.DTO.DTO;
 using CustomerWebApiDDD.Domain.Models;
 using CustomerWebApiDDD.Infrastruture.CrossCutting.Adapter.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace CustomerWebApiDDD.Infrastruture.CrossCutting.Adapter.Maps
 {
@@ -21,7 +19,7 @@ namespace CustomerWebApiDDD.Infrastruture.CrossCutting.Adapter.Maps
                 {
                     Id = customer.Id,
                     Name = customer.Name,
-                    Cpf =  customer.Cpf,
+                    Cpf = customer.Cpf,
                     Birth = customer.Birth,
                 });
             }
@@ -29,7 +27,7 @@ namespace CustomerWebApiDDD.Infrastruture.CrossCutting.Adapter.Maps
             return customersDTO;
         }
 
-        public CustomerDTO MapperToDTO(Customer customer) => customer != null ? new CustomerDTO() 
+        public CustomerDTO MapperToDTO(Customer customer) => customer != null ? new CustomerDTO()
         {
             Id = customer.Id,
             Name = customer.Name,

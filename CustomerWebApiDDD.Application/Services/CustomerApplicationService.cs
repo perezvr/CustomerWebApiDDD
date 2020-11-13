@@ -2,8 +2,6 @@
 using CustomerWebApiDDD.Application.Interfaces;
 using CustomerWebApiDDD.Domain.Core.Interfaces.Repositories;
 using CustomerWebApiDDD.Infrastruture.CrossCutting.Adapter.Interfaces;
-using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
 
 namespace CustomerWebApiDDD.Application.Services

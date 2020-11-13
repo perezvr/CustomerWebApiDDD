@@ -108,7 +108,7 @@ namespace CustomerWebApiDDD.Infrastruture.Repository.Repositories
         public void Update(int id, Customer customer)
         {
             customer.Validate();
-        
+
             using SqlConnection con = Connection.GetConnection();
             try
             {

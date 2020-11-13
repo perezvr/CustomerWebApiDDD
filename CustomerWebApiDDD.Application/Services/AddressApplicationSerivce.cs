@@ -2,10 +2,7 @@
 using CustomerWebApiDDD.Application.Interfaces;
 using CustomerWebApiDDD.Domain.Core.Interfaces.Repositories;
 using CustomerWebApiDDD.Infrastruture.CrossCutting.Adapter.Interfaces;
-using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace CustomerWebApiDDD.Application.Services
 {
@@ -19,7 +16,7 @@ namespace CustomerWebApiDDD.Application.Services
             _addressRepository = addressRepository;
             _addresMapper = addresMapper;
         }
-        
+
         public List<AddressDTO> Get()
         {
             var addresses = _addressRepository.Get();

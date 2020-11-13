@@ -1,5 +1,4 @@
 ﻿using CustomerWebApiDDD.Application.DTO.DTO;
-using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
 namespace CustomerWebApiDDD.Application.Interfaces
