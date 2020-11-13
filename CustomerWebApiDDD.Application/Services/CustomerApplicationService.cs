@@ -31,16 +31,18 @@ namespace CustomerWebApiDDD.Application.Services
             return _customerMapper.MapperToDTO(customer);
         }
 
-        public void Insert(CustomerDTO customerDTO)
+        public CustomerDTO Insert(CustomerDTO customerDTO)
         {
             var customer = _customerMapper.MapperToEntity(customerDTO);
-            _customerRepository.Insert(customer);
+            var id = _customerRepository.Insert(customer);
+            return Get(id);
         }
 
-        public void Update(int id, CustomerDTO customerDTO)
+        public CustomerDTO Update(int id, CustomerDTO customerDTO)
         {
             var customer = _customerMapper.MapperToEntity(customerDTO);
             _customerRepository.Update(id, customer);
+            return Get(id);
         }
 
         public void Delete(int id) => _customerRepository.Delete(id);

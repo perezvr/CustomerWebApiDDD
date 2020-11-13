@@ -8,21 +8,21 @@ namespace CustomerWebApiDDD.Presentation.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CustomerController : ControllerBase
+    public class AddressController : ControllerBase
     {
-        private readonly ICustomerApplicationService _customerApplicationService;
+        private readonly IAddressApplicationService _addressApplicationService;
 
-        public CustomerController(ICustomerApplicationService customerApplicationService)
+        public AddressController(IAddressApplicationService addressApplicationService)
         {
-            _customerApplicationService = customerApplicationService;
+            _addressApplicationService = addressApplicationService;
         }
 
         [HttpGet]
-        public ActionResult<List<CustomerDTO>> Get()
+        public ActionResult<List<AddressDTO>> Get()
         {
             try
             {
-                return _customerApplicationService.Get();
+                return _addressApplicationService.Get();
             }
             catch (Exception ex)
             {
@@ -31,11 +31,11 @@ namespace CustomerWebApiDDD.Presentation.Controllers
         }
 
         [HttpGet("{id}")]
-        public ActionResult<CustomerDTO> Get(int id)
+        public ActionResult<AddressDTO> Get(int id)
         {
             try
             {
-                return _customerApplicationService.Get(id);
+                return _addressApplicationService.Get(id);
             }
             catch (Exception ex)
             {
@@ -44,11 +44,11 @@ namespace CustomerWebApiDDD.Presentation.Controllers
         }
 
         [HttpPost]
-        public ActionResult<CustomerDTO> Post([FromBody] CustomerDTO customerDTO)
+        public ActionResult<AddressDTO> Post([FromBody] AddressDTO addressDTO)
         {
             try
             {
-                return _customerApplicationService.Insert(customerDTO);
+                return _addressApplicationService.Insert(addressDTO);
             }
             catch (Exception ex)
             {
@@ -57,16 +57,11 @@ namespace CustomerWebApiDDD.Presentation.Controllers
         }
 
         [HttpPut("{id}")]
-        public ActionResult<CustomerDTO> Put(int id, [FromBody] CustomerDTO customerDTO)
+        public ActionResult<AddressDTO> Put(int id, [FromBody] AddressDTO addressDTO)
         {
             try
             {
-                CustomerDTO existingCustomer = _customerApplicationService.Get(id);
-
-                if (existingCustomer is null)
-                    return NotFound();
-
-                return _customerApplicationService.Update(id, customerDTO);
+                return _addressApplicationService.Update(id, addressDTO);
             }
             catch (Exception ex)
             {
@@ -79,7 +74,7 @@ namespace CustomerWebApiDDD.Presentation.Controllers
         {
             try
             {
-                _customerApplicationService.Delete(id);
+                _addressApplicationService.Delete(id);
                 return Ok();
 
             }

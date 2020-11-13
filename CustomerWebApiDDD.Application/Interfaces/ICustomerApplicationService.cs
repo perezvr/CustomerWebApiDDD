@@ -8,8 +8,8 @@ namespace CustomerWebApiDDD.Application.Interfaces
     {
         List<CustomerDTO> Get();
         CustomerDTO Get(int id);
-        void Insert(CustomerDTO customerDTO);
-        void Update(int id, CustomerDTO customerDTO);
+        CustomerDTO Insert(CustomerDTO customerDTO);
+        CustomerDTO Update(int id, CustomerDTO customerDTO);
         void Delete(int id);
     }
 }

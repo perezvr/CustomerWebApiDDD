@@ -4,10 +4,10 @@ using System.Collections.Generic;
 
 namespace CustomerWebApiDDD.Infrastruture.CrossCutting.Adapter.Interfaces
 {
-    public interface IAddresMapper
+    public interface IAddressMapper
     {
         Address MapperToEntity(AddressDTO addressDTO);
-        List<AddressDTO> ListMapperToEntity(List<Address> addresses);
+        List<AddressDTO> ListMapperToDTO(List<Address> addresses);
         AddressDTO MapperToDTO(Address address);
     }
 }

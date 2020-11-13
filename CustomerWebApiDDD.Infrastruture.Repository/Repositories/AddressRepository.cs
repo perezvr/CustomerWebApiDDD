@@ -1,32 +1,34 @@
 ﻿using CustomerWebApiDDD.Domain.Core.Interfaces.Repositories;
 using CustomerWebApiDDD.Domain.Models;
 using CustomerWebApiDDD.Infrastruture.Repository.DBConnection;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Text;
 
 namespace CustomerWebApiDDD.Infrastruture.Repository.Repositories
 {
-    public class CustomerRepository : ICustomerRepository
+    public class AddressRepository : IAddressRepository
     {
-        public List<Customer> Get()
+        public List<Address> Get()
         {
             using SqlConnection con = Connection.GetConnection();
             try
             {
-                List<Customer> customers = new List<Customer>();
+                List<Address> addresses = new List<Address>();
                 con.Open();
 
-                string SQL = $@"SELECT Id, Name, Cpf, Birth
-                                FROM Customer";
+                string SQL = $@"SELECT Id, Street, Neighborhood, City, State
+                                FROM Address";
 
                 SqlCommand cmd = new SqlCommand(SQL, con);
 
                 var dataReader = cmd.ExecuteReader();
 
                 while (dataReader.Read())
-                    customers.Add(Customer.New(dataReader.GetInt32(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetDateTime(3)));
+                    addresses.Add(Address.New(dataReader.GetInt32(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetString(2), dataReader.GetString(2)));
 
-                return customers;
+                return addresses;
             }
             catch
             {
@@ -38,16 +40,16 @@ namespace CustomerWebApiDDD.Infrastruture.Repository.Repositories
             }
         }
 
-        public Customer Get(int id)
+        public Address Get(int id)
         {
             using SqlConnection con = Connection.GetConnection();
             try
             {
-                Customer customer = null;
+                Address address = null;
                 con.Open();
 
-                string SQL = $@"SELECT Id, Name, Cpf, Birth
-                                FROM Customer 
+                string SQL = $@"SELECT Id, Street, Neighborhood, City, State
+                                FROM Address
                                 WHERE Id = @id";
 
                 SqlCommand cmd = new SqlCommand(SQL, con);
@@ -55,9 +57,9 @@ namespace CustomerWebApiDDD.Infrastruture.Repository.Repositories
                 var dataReader = cmd.ExecuteReader();
 
                 while (dataReader.Read())
-                    customer = Customer.New(dataReader.GetInt32(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetDateTime(3));
+                    address = Address.New(dataReader.GetInt32(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetString(2), dataReader.GetString(2));
 
-                return customer;
+                return address;
             }
             catch
             {
@@ -69,23 +71,24 @@ namespace CustomerWebApiDDD.Infrastruture.Repository.Repositories
             }
         }
 
-        public int Insert(Customer customer)
+        public int Insert(Address address)
         {
-            customer.Validate();
+            address.Validate();
 
             using SqlConnection con = Connection.GetConnection();
             try
             {
-                string SQL = $@"INSERT INTO Customer (Name, Cpf, Birth)
+                string SQL = $@"INSERT INTO Address (Street, Neighborhood, City, State)
                                 OUTPUT Inserted.ID
-                                VALUES (@name, @cpf, @birth)";
+                                VALUES (@street, @neighborhood, @city, @state)";
 
                 con.Open();
                 SqlCommand cmd = new SqlCommand(SQL, con);
 
-                cmd.Parameters.AddWithValue("@name", customer.Name);
-                cmd.Parameters.AddWithValue("@cpf", customer.Cpf);
-                cmd.Parameters.AddWithValue("@birth", customer.Birth);
+                cmd.Parameters.AddWithValue("@street", address.Street);
+                cmd.Parameters.AddWithValue("@neighborhood", address.Neighborhood);
+                cmd.Parameters.AddWithValue("@city", address.City);
+                cmd.Parameters.AddWithValue("@state", address.State);
                 var dataReader = cmd.ExecuteReader();
 
                 int id = 0;
@@ -105,23 +108,24 @@ namespace CustomerWebApiDDD.Infrastruture.Repository.Repositories
             }
         }
 
-        public void Update(int id, Customer customer)
+        public void Update(int id, Address address)
         {
-            customer.Validate();
-        
+            address.Validate();
+           
             using SqlConnection con = Connection.GetConnection();
             try
             {
-                string SQL = $@"UPDATE Customer 
-                                SET Name = @name, Cpf = @cpf, Birth = @birth
+                string SQL = $@"UPDATE Address 
+                                SET Street = @street, Neighborhood = @neighborhood, City = @city, State = @state
                                 WHERE Id = @id";
 
                 con.Open();
                 SqlCommand cmd = new SqlCommand(SQL, con);
 
-                cmd.Parameters.AddWithValue("@name", customer.Name);
-                cmd.Parameters.AddWithValue("@cpf", customer.Cpf);
-                cmd.Parameters.AddWithValue("@birth", customer.Birth);
+                cmd.Parameters.AddWithValue("@street", address.Street);
+                cmd.Parameters.AddWithValue("@neighborhood", address.Neighborhood);
+                cmd.Parameters.AddWithValue("@city", address.City);
+                cmd.Parameters.AddWithValue("@state", address.State);
                 cmd.Parameters.AddWithValue("@id", id);
                 cmd.ExecuteNonQuery();
             }
@@ -141,7 +145,7 @@ namespace CustomerWebApiDDD.Infrastruture.Repository.Repositories
             try
             {
                 string SQL = $@"DELETE
-                                FROM Customer
+                                FROM Address
                                 WHERE Id = @id";
 
                 con.Open();

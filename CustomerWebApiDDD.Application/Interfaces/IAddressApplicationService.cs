@@ -8,10 +8,10 @@ namespace CustomerWebApiDDD.Application.Interfaces
 {
     public interface IAddressApplicationService
     {
-        ActionResult<List<AddressDTO>> Get();
-        ActionResult<AddressDTO> Get(int id);
-        void Insert(AddressDTO addressDTO);
-        void Update(int id, AddressDTO addressDTO);
+        List<AddressDTO> Get();
+        AddressDTO Get(int id);
+        AddressDTO Insert(AddressDTO addressDTO);
+        AddressDTO Update(int id, AddressDTO addressDTO);
         void Delete(int id);
     }
 }

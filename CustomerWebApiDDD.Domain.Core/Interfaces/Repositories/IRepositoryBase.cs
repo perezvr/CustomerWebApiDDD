@@ -10,7 +10,7 @@ namespace CustomerWebApiDDD.Domain.Core.Interfaces.Repositories
     {
         List<T> Get();
         T Get(int id);
-        void Insert(T t);
+        int Insert(T t);
         void Update(int id, T t);
         void Delete(int id);
     }

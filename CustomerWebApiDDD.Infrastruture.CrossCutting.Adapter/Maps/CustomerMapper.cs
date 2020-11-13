@@ -29,12 +29,12 @@ namespace CustomerWebApiDDD.Infrastruture.CrossCutting.Adapter.Maps
             return customersDTO;
         }
 
-        public CustomerDTO MapperToDTO(Customer customer) => new CustomerDTO() 
+        public CustomerDTO MapperToDTO(Customer customer) => customer != null ? new CustomerDTO() 
         {
             Id = customer.Id,
             Name = customer.Name,
             Cpf = customer.Cpf,
             Birth = customer.Birth,
-        };
+        } : null;
     }
 }

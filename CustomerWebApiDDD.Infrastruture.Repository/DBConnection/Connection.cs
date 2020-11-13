@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data.SqlClient;
 
-namespace CustomerWebApiDDD.Infrastruture.Repository.ConnectionDB
+namespace CustomerWebApiDDD.Infrastruture.Repository.DBConnection
 {
     public class Connection
     {

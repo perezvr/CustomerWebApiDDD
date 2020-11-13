@@ -5,11 +5,11 @@ using System.Collections.Generic;
 
 namespace CustomerWebApiDDD.Infrastruture.CrossCutting.Adapter.Maps
 {
-    public class AddressMapper : IAddresMapper
+    public class AddressMapper : IAddressMapper
     {
         public Address MapperToEntity(AddressDTO addressDTO) => Address.New(addressDTO.Street, addressDTO.Neighborhood, addressDTO.City, addressDTO.State);
 
-        public List<AddressDTO> ListMapperToEntity(List<Address> addresses)
+        public List<AddressDTO> ListMapperToDTO(List<Address> addresses)
         {
             List<AddressDTO> addressesDTO = new List<AddressDTO>();
 
@@ -28,13 +28,13 @@ namespace CustomerWebApiDDD.Infrastruture.CrossCutting.Adapter.Maps
             return addressesDTO;
         }
 
-        public AddressDTO MapperToDTO(Address address) => new AddressDTO()
+        public AddressDTO MapperToDTO(Address address) => address != null ? new AddressDTO()
         {
             Id = address.Id,
             Street = address.Street,
             Neighborhood = address.Neighborhood,
             City = address.City,
             State = address.State,
-        };
+        } : null;
     }
 }

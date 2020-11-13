@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 
 namespace CustomerWebApiDDD
 {
@@ -25,9 +26,19 @@ namespace CustomerWebApiDDD
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
             services.AddTransient<ICustomerApplicationService, CustomerApplicationService>();
             services.AddTransient<ICustomerRepository, CustomerRepository>();
             services.AddTransient<ICustomerMapper, CustomerMapper>();
+
+            services.AddTransient<IAddressApplicationService, AddressApplicationSerivce>();
+            services.AddTransient<IAddressRepository, AddressRepository>();
+            services.AddTransient<IAddressMapper, AddressMapper>();
+
+            services.AddSwaggerGen(sw =>
+            {
+                sw.SwaggerDoc("v1", new OpenApiInfo { Title = "CustomerWebApiDDD", Version = "v1" });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -37,6 +48,10 @@ namespace CustomerWebApiDDD
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(swUI => swUI.SwaggerEndpoint("/swagger/v1/swagger.json", "CustomerWebApiDDD"));
 
             app.UseHttpsRedirection();
 

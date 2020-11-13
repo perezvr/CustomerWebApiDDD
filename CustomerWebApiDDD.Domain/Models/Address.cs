@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace CustomerWebApiDDD.Domain.Models
 {
@@ -41,5 +43,16 @@ namespace CustomerWebApiDDD.Domain.Models
         [Required]
         [MaxLength(40)]
         public string State { get; private set; }
+
+        public bool Validate()
+        {
+            var vContext = new ValidationContext(this);
+            var results = new List<ValidationResult>();
+
+            if (!Validator.TryValidateObject(this, vContext, results, true))
+                throw new ArgumentException(results[0].ErrorMessage);
+
+            return true;
+        }
     }
 }
