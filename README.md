@@ -23,4 +23,4 @@ State VARCHAR(30) NOT NULL,
 <b>Default server: </b> MSSQLLocalDB<br>
 <b>Default DB: </b> Customer<br>
 
-<i>Para alterar a conexão é só acessar a classe: <b>CustomerWebApiDDD.Infrastruture.Repository.DBConnection.Connection</b>  </i>
+<i>Para alterar a conexão é só acessar a classe:</i> <b>CustomerWebApiDDD.Infrastruture.Repository.DBConnection.Connection</b>
